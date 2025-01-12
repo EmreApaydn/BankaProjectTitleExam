@@ -17,5 +17,5 @@ Specification Heading
 * Send keys "Sifre3557" to password
 * Click to Login Button
 * Check the Successful Login
-* Wait "2" seconds
+* Wait "3" seconds
 * Close the driver
