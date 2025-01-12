@@ -35,15 +35,9 @@ Specification Heading
 ----------------------------
 * Başarılı Login concept
 * Click to Open Money
-* Click to Add Money
-* Send keys "1234 1234 1234 1234" to Card Number
-* Send keys "Emre Apaydın" to Card Holder
-* Wait "1" seconds
+* Eksik Kart Bilgisi Girilir
 * Click to Add Button
-* Wait "1" seconds
-* "Required" textini Expiry date hata elementi ile karşılaştır
-* "Required" textini CVV hata elementi ile karşılaştır
-* "Required" textini Amount hata elementi ile karşılaştır
+* Eksik kart bilgisi hatası kontrolü
 * Close the driver
 
 
@@ -51,24 +45,17 @@ Specification Heading
 ----------------------------
 * Başarılı Login concept
 * Click to Open Money
-* Click to Add Money
-* Send keys "1234 1234 1234 1234" to Card Number
-* Send keys "Emre Apaydın" to Card Holder
-* Send keys "10/26" to Card Expiry Date
-* Send keys "110" to Card CVV
-* Send keys "1000" to Card Ammount
+* Kart bilgisi girilir
 * Click to Add Button
-* "1000" textini add Transaction elementi ile karşılaştır
+* Wait "2" seconds
+* "1,000.00" textini add Transaction elementi ile karşılaştır
 * Close the driver
 
 (CASE6) -Hesabı Düzenleme
 ----------------------------
 * Başarılı Login concept
 * Click to Open Money
-* Click to Edit Account
-* Wait "1" seconds
-* Send keys "emre.apaydinn" to Account Name
-* Click to Edit Update
+* Edit Account
 * "emre.apaydinn" textini AccountName elementi ile karşılaştır
 * Close the driver
 

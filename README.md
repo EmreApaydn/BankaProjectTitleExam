@@ -1,33 +1,37 @@
-## About this template
+# Selenium Test Otomasyon Projesi
 
-This is a template to get started with a Gauge project that uses Selenium as the Driver.Driver to interact with a web browser.
+Bu proje, Selenium kullanarak web uygulamalarında otomasyon testi yapmak için geliştirilmiştir. Proje, birden fazla sınıf ve yöntem kullanılarak test süreçlerini kolaylaştırmayı ve yapılandırmayı hedefler.
 
-## Installing this template
+## Proje Yapısı
 
-    gauge --install java_maven_selenium
+### 1. WebMethods (Metotlar)
+`Methods` sınıfı, Selenium WebDriver ile kullanılan genel metotları içerir. Bu metotlar, web elementlerini bulma, tıklama, metin gönderme, sayfa yüklenmesini bekleme gibi işlemleri kolaylaştırır.
 
-## Building on top of this template
+### 2. Step (Adımlar)
+`StepImplementation` sınıfı, test senaryolarında kullanılan adımları içerir. Bu adımlar, test edilen web uygulamasındaki kullanıcı davranışlarını simüle eder ve Gauge framework'ü ile çalışır.
 
-### Defining Specifications
+### 3. Driver (Sürücü Yönetimi)
+`BaseTest` sınıfı, farklı tarayıcılarda testleri başlatmak ve tarayıcı oturumunu yönetmek için gerekli ayarları yapar. Tarayıcılar arasında Chrome ve Firefox desteklenir.
 
-* This template includes a sample specification which opens up a browser and navigates to `Get Started` page of Gauge.
-* Add more specifications on top of sample specification.
+### 4. Elements (Element Tanımlamaları)
+`Elements` sınıfı, test senaryolarında kullanılan tüm web elementlerini merkezi bir konumda toplar. Elementler `By` sınıfı kullanılarak tanımlanmıştır ve kolay erişim sağlar.
 
-Read more about [Specifications](http://getgauge.io/documentation/user/current/specifications/README.html)
+---
 
-### Writing the implementations
+## Kullanılan Teknolojiler
 
-This is where the java implementation of the steps would be implemented. Since this is a Selenium based project, the java implementation would invoke Selenium APIs as required.
+- **Java**: Programlama dili
+- **Selenium WebDriver**: Web otomasyonu
+- **Gauge Framework**: Test senaryolarını yazmak için
+- **Lombok**: Loglama ve boilerplate kodları azaltmak için
+- **WebDriverManager**: Tarayıcı sürücülerinin yönetimi
+- **JUnit**: Test işlemleri
 
-_We recommend considering modelling your tests using the [Page Object](https://github.com/SeleniumHQ/selenium/wiki/PageObjects) pattern, and the [Webdriver support](https://github.com/SeleniumHQ/selenium/wiki/PageFactory) for creating them._
+---
 
-- Note that every Gauge step implementation is annotated with a `Step` attribute that takes the Step text pattern as a parameter.
-Read more about [Step implementations in Java](http://getgauge.io/documentation/user/current/test_code/java/java.html)
+## Projeyi Çalıştırma
 
-### Execution
-
-* You can execute the specification as:
-
-```
-mvn test
-```
+### Gereksinimler
+- Java JDK (minimum 11)
+- Maven
+- Chrome veya Firefox tarayıcıları

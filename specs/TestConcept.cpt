@@ -13,3 +13,29 @@
 * Click to Login Button
 * Check the Successful Login
 * Wait "2" seconds
+
+# Eksik Kart Bilgisi Girilir
+* Click to Add Money
+* Send keys "1234 1234 1234 1234" to Card Number
+* Send keys "Emre Apaydın" to Card Holder
+* Wait "1" seconds
+
+# Eksik kart bilgisi hatası kontrolü
+* Wait "1" seconds
+* "Required" textini Expiry date hata elementi ile karşılaştır
+* "Required" textini CVV hata elementi ile karşılaştır
+* "Required" textini Amount hata elementi ile karşılaştır
+
+# Kart bilgisi girilir
+* Click to Add Money
+* Send keys "1234123412341234" to Card Number
+* Send keys "Emre Apaydın" to Card Holder
+* Send keys "10/26" to Card Expiry Date
+* Send keys "110" to Card CVV
+* Send keys "1000" to Card Ammount
+
+# Edit Account
+* Click to Edit Account
+* Wait "1" seconds
+* Send keys "emre.apaydinn" to Account Name
+* Click to Edit Update
