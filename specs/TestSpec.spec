@@ -1,4 +1,4 @@
-Specification Heading
+Banka Uygulaması Test
 =====================
 
 (CASE1) -Giriş yapılırken hatalı bilgi girilmesi
