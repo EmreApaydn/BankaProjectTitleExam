@@ -4,6 +4,7 @@ import Driver.BaseTest;
 import Elements.Elements;
 import Page.LoginPage;
 import WebMethods.Methods;
+import com.github.dockerjava.api.model.Driver;
 import com.thoughtworks.gauge.Step;
 import lombok.extern.log4j.Log4j;
 import org.junit.Assert;
@@ -94,6 +95,21 @@ public class StepImplementation {
         methods.click(Elements.EDIT_UPDATE_BUTTON);
     }
 
+    @Step("Click to Add Money")
+    public void clickAddMoney() {
+        methods.click(Elements.ADD_MONEY);
+    }
+
+    @Step("Click to Add Button")
+    public void clickAddButton() {
+        methods.click(Elements.CARD_ADD_BUTTON);
+    }
+
+    @Step("Click to Logout Button")
+    public void clickLogoutButton() {
+        methods.click(Elements.LOGOUT_BUTTON);
+    }
+
     @Step("Send keys <text> to username")
     public void sendkeysUsername(String text) {
         methods.click(Elements.LOGIN_USERNAME);
@@ -117,7 +133,58 @@ public class StepImplementation {
         log.info(text + " has been written to this element " + Elements.TRANSFER_AMMOUNT + " .");
 
     }
-   @Step("Send keys <text> to Account Name")
+    @Step("Send keys <text> to Card Number")
+    public void sendkeysCardNumber(String text) {
+        methods.click(Elements.CARD_NUMBER);
+        methods.findElement(Elements.CARD_NUMBER).clear();
+        methods.findElement(Elements.CARD_NUMBER).sendKeys(text);
+        log.info(text + " has been written to this element " + Elements.CARD_NUMBER + " .");
+
+    }
+    @Step("Send keys <text> to Card Holder")
+    public void sendkeysCardHolder(String text) {
+        methods.click(Elements.CARD_HOLDER);
+        methods.findElement(Elements.CARD_HOLDER).clear();
+        methods.findElement(Elements.CARD_HOLDER).sendKeys(text);
+        log.info(text + " has been written to this element " + Elements.CARD_HOLDER + " .");
+
+    }
+    @Step("Send keys <text> to Card Expiry Date")
+    public void sendkeysCardExpiry(String text) {
+        scrollWithAction(Elements.CARD_EXPIRY_DATE);
+        methods.click(Elements.CARD_EXPIRY_DATE);
+        methods.findElement(Elements.CARD_EXPIRY_DATE).clear();
+        methods.findElement(Elements.CARD_EXPIRY_DATE).sendKeys(text);
+        log.info(text + " has been written to this element " + Elements.CARD_EXPIRY_DATE + " .");
+
+    }
+    @Step("Send keys <text> to Card CVV")
+    public void sendkeysCardCCV(String text) {
+        scrollWithAction(Elements.CARD_CCV);
+        methods.click(Elements.CARD_CCV);
+        methods.findElement(Elements.CARD_CCV).clear();
+        methods.findElement(Elements.CARD_CCV).sendKeys(text);
+        log.info(text + " has been written to this element " + Elements.CARD_CCV + " .");
+
+    }
+
+    @Step("Send keys <text> to Card Ammount")
+    public void sendkeysCardAmmount(String text) {
+        scrollWithAction(Elements.CARD_ADD_AMMOUNT);
+        methods.click(Elements.CARD_ADD_AMMOUNT);
+        methods.findElement(Elements.CARD_ADD_AMMOUNT).clear();
+        methods.findElement(Elements.CARD_ADD_AMMOUNT).sendKeys(text);
+        log.info(text + " has been written to this element " + Elements.CARD_ADD_AMMOUNT + " .");
+
+    }
+
+    public void scrollWithAction(By by) {
+        Actions actions = new Actions(BaseTest.webDriver);
+        actions.moveToElement(methods.findElement(by)).build().perform();
+        log.info("This element " + locator + " has been scrolled.");
+    }
+
+    @Step("Send keys <text> to Account Name")
     public void sendkeysEditAccountName(String text) {
         methods.click(Elements.EDIT_ACCOUNT_NAME);
         methods.findElement(Elements.EDIT_ACCOUNT_NAME).clear();
@@ -142,6 +209,12 @@ public class StepImplementation {
         return methods.findElement(Elements.LOGIN_ALLERT).isDisplayed();
     }
 
+    @Step("Check if the Login element is present on the page.")
+    public boolean loginButtonIsDisplayed() {
+        log.info(Elements.LOGIN_BUTTON + " Element located.");
+        return methods.findElement(Elements.LOGIN_BUTTON).isDisplayed();
+    }
+
     @Step("Check the Successful Login")
     public boolean logoutLogoDisplayed() {
         log.info(Elements.LOGOUT_LOGO + " Element located.");
@@ -150,6 +223,42 @@ public class StepImplementation {
     @Step("<text> textini Transaction elementi ile karşılaştır")
     public void transferMoneyCompare(String text) {
         WebElement element = methods.findElement(Elements.TRANSACTION_AMMOUNT);
+        String compare = element.getText();
+        assertTrue(compare.equals(text));
+        log.info(text + " textiyle " + compare + " texti karşılaştırıldı.");
+
+    }
+
+    @Step("<text> textini add Transaction elementi ile karşılaştır")
+    public void addMoneyCompare(String text) {
+        WebElement element = methods.findElement(Elements.TRANSACTION_AMMOUNT);
+        String compare = element.getText();
+        assertTrue(compare.equals(text));
+        log.info(text + " textiyle " + compare + " texti karşılaştırıldı.");
+
+    }
+
+    @Step("<text> textini Expiry date hata elementi ile karşılaştır")
+    public void ExpiryDateReq(String text) {
+        WebElement element = methods.findElement(Elements.CARD_EXPIRY_REQIRED);
+        String compare = element.getText();
+        assertTrue(compare.equals(text));
+        log.info(text + " textiyle " + compare + " texti karşılaştırıldı.");
+
+    }
+
+    @Step("<text> textini CVV hata elementi ile karşılaştır")
+    public void CVVReq(String text) {
+        WebElement element = methods.findElement(Elements.CARD_CVV_REQIRED);
+        String compare = element.getText();
+        assertTrue(compare.equals(text));
+        log.info(text + " textiyle " + compare + " texti karşılaştırıldı.");
+
+    }
+
+    @Step("<text> textini Amount hata elementi ile karşılaştır")
+    public void AmountReq(String text) {
+        WebElement element = methods.findElement(Elements.CARD_AMOUNT_REQIRED);
         String compare = element.getText();
         assertTrue(compare.equals(text));
         log.info(text + " textiyle " + compare + " texti karşılaştırıldı.");

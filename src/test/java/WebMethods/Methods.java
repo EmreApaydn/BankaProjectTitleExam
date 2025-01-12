@@ -17,6 +17,15 @@ public class Methods {
     FluentWait<WebDriver> wait;
 
     JavascriptExecutor jsdriver;
+
+    public static WebDriver getWebDriver() {
+        return webDriver;
+    }
+
+    public static void setWebDriver(WebDriver webDriver) {
+        Methods.webDriver = webDriver;
+    }
+
     private static WebDriver webDriver;
     Long pollingEveryValue;
     public Methods () {
