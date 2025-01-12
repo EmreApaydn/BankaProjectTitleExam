@@ -17,5 +17,27 @@ Specification Heading
 * Send keys "Sifre3557" to password
 * Click to Login Button
 * Check the Successful Login
-* Wait "3" seconds
+* Wait "2" seconds
+* Close the driver
+
+(CASE3) -Başarılı Para Transferi
+----------------------------
+* Başarılı Login concept
+* Click to Open Money
+* Click to Transfer Money
+* Wait "1" seconds
+* Send keys "10" to Transfer Ammount
+* Click to Transfer Send
+* "10" textini Transaction elementi ile karşılaştır
+* Close the driver
+
+(CASE4) -Hesabı Düzenleme
+----------------------------
+* Başarılı Login concept
+* Click to Open Money
+* Click to Edit Account
+* Wait "1" seconds
+* Send keys "emre.apaydinn" to Account Name
+* Click to Edit Update
+* "emre.apaydinn" textini AccountName elementi ile karşılaştır
 * Close the driver

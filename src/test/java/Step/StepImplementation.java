@@ -12,9 +12,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
-
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.Assert.assertTrue;
 
 @Log4j
 
@@ -75,6 +74,26 @@ public class StepImplementation {
         methods.click(Elements.LOGIN_BUTTON);
     }
 
+    @Step("Click to Transfer Money")
+    public void clickTransferMoney() {
+        methods.click(Elements.TRANSFER_MONEY);
+    }
+
+    @Step("Click to Transfer Send")
+    public void clickTransferSend() {
+        methods.click(Elements.TRANSFER_SEND);
+    }
+
+    @Step("Click to Edit Account")
+    public void clickEditAccount() {
+        methods.click(Elements.EDIT_ACCOUNT);
+    }
+
+    @Step("Click to Edit Update")
+    public void clickEditUpdate() {
+        methods.click(Elements.EDIT_UPDATE_BUTTON);
+    }
+
     @Step("Send keys <text> to username")
     public void sendkeysUsername(String text) {
         methods.click(Elements.LOGIN_USERNAME);
@@ -88,6 +107,22 @@ public class StepImplementation {
         methods.findElement(Elements.LOGIN_PASSWORD).clear();
         methods.findElement(Elements.LOGIN_PASSWORD).sendKeys(text);
         log.info(text + " has been written to this element " + Elements.LOGIN_PASSWORD + " .");
+
+    }
+    @Step("Send keys <text> to Transfer Ammount")
+    public void sendkeysTransferAmmount(String text) {
+        methods.click(Elements.TRANSFER_AMMOUNT);
+        methods.findElement(Elements.TRANSFER_AMMOUNT).clear();
+        methods.findElement(Elements.TRANSFER_AMMOUNT).sendKeys(text);
+        log.info(text + " has been written to this element " + Elements.TRANSFER_AMMOUNT + " .");
+
+    }
+   @Step("Send keys <text> to Account Name")
+    public void sendkeysEditAccountName(String text) {
+        methods.click(Elements.EDIT_ACCOUNT_NAME);
+        methods.findElement(Elements.EDIT_ACCOUNT_NAME).clear();
+        methods.findElement(Elements.EDIT_ACCOUNT_NAME).sendKeys(text);
+        log.info(text + " has been written to this element " + Elements.EDIT_ACCOUNT_NAME + " .");
 
     }
 
@@ -112,14 +147,23 @@ public class StepImplementation {
         log.info(Elements.LOGOUT_LOGO + " Element located.");
         return methods.findElement(Elements.LOGOUT_LOGO).isDisplayed();
     }
-    @Step("<text> textini transferMoneyAmount elementi ile karşılaştır")
+    @Step("<text> textini Transaction elementi ile karşılaştır")
     public void transferMoneyCompare(String text) {
-        WebElement element = methods.findElement(Elements.OPEN_MONEY_TRANSFER);
+        WebElement element = methods.findElement(Elements.TRANSACTION_AMMOUNT);
         String compare = element.getText();
         assertTrue(compare.equals(text));
         log.info(text + " textiyle " + compare + " texti karşılaştırıldı.");
 
     }
 
+    @Step("<text> textini AccountName elementi ile karşılaştır")
+    public void accountNameCompare(String text) {
+        WebElement element = methods.findElement(Elements.ACCOUNT_NAME);
+        String compare = element.getText();
+        System.out.println(compare);
+        assertTrue(compare.equals(text));
+        log.info(text + " textiyle " + compare + " texti karşılaştırıldı.");
+
+    }
 }
 
