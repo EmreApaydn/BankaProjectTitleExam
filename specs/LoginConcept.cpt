@@ -1,0 +1,15 @@
+# Başarısız Login concept
+* Started with "Chrome"
+* Send keys "emre.apaydin" to username
+* Send keys "Test1234" to password
+* Click to Login Button
+* Check if the invalid email/password element is present on the page.
+* Close the driver
+
+# Başarılı Login concept
+* Started with "Chrome"
+* Send keys "emre.apaydin" to username
+* Send keys "Sifre3557" to password
+* Click to Login Button
+* Check the Successful Login
+* Wait "2" seconds
